@@ -1,6 +1,6 @@
 mkdir Fundamentos
 cd Fundamentos
 git init
-
+8========D
 git remote add origin https://github.com/lvaldivia/Fundamentos201901.git
 
