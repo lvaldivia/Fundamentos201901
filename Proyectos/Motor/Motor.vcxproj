@@ -136,7 +136,12 @@
   <ItemGroup>
     <ClInclude Include="GLSProgram.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Vertex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Motor.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,8 +3,8 @@
 #include <iostream>
 using namespace std;
 
-MainGame::MainGame(): window(nullptr),width(300),
-					height(200),
+MainGame::MainGame(): window(nullptr),width(800),
+					height(600),
 					gameState(GameState::PLAY)
 {
 	/*window = nullptr;
@@ -44,6 +44,7 @@ void MainGame::init() {
 
 void MainGame::run() {
 	init();
+	sprite.init(-1, -1, 1, 1);
 	update();
 }
 
@@ -51,6 +52,7 @@ void MainGame::draw() {
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//se dibujaran los elementos en pantalla
+	sprite.draw();
 	SDL_GL_SwapWindow(window);
 }
 
@@ -74,11 +76,11 @@ void MainGame::processInput()
 		case SDL_MOUSEBUTTONDOWN:
 			
 			break;
-		case SDL_MOUSEMOTION:
+		/*case SDL_MOUSEMOTION:
 			cout
 				<< "pos x " << event.motion.x
 				<< " pos y " << event.motion.y;
-			break;
+			break;*/
 		}
 	}
 }

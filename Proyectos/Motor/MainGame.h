@@ -1,6 +1,7 @@
 #pragma once
 #include<SDL\SDL.h>
 #include <GL\glew.h>
+#include "Sprite.h"
 
 enum class GameState {
 	PLAY,
@@ -11,6 +12,7 @@ class MainGame{
 private:
 	int width;
 	int height;
+	Sprite sprite;
 	SDL_Window*window; 
 	void init();
 public:
