@@ -1,4 +1,5 @@
 #include "MainGame.h"
+#include "GL/glew.h"
 #include <iostream>
 using namespace std;
 
@@ -32,10 +33,10 @@ void MainGame::init() {
 	SDL_GLContext glContext =
 		SDL_GL_CreateContext(window);
 	
-	/*GLenum error = glewInit();
+	GLenum error = glewInit();
 	if (error != GLEW_OK) {
 		//se cayo
-	}*/
+	}
 	
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
