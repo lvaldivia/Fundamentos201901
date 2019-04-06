@@ -1,5 +1,4 @@
-﻿  Sprite.cpp
-  GLSProgram.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
-MainGame.obj : warning LNK4248: sÝmbolo (token) de typeref sin resolver (01000018) para 'SDL_Window'; no se puede ejecutar la imagen
-  Motor.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\Motor.exe
-  Motor.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\Motor.pdb (Partial PDB)
+﻿  GLSProgram.cpp
+GLSProgram.cpp(19): error C2079: 'shaderFile' utiliza class 'std::basic_ifstream<char,std::char_traits<char>>' sin definir
+GLSProgram.cpp(19): error C2440: 'inicializando': no se puede realizar la conversión de 'const std::string' a 'int'
+  GLSProgram.cpp(19): note: No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
