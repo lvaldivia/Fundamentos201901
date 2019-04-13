@@ -28,9 +28,9 @@ struct Color {
 };
 
 struct Vertex {
-	
 	Color color;
 	Position position;
+	
 	void setColor(GLubyte _r, GLubyte _g, GLubyte _b, GLubyte _a) {
 		color.set(_r, _g, _b, _a);
 	}

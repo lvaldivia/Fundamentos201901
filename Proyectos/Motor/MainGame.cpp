@@ -45,6 +45,7 @@ void MainGame::initShaders()
 								, "Shaders/colorShaderFrag.txt");
 	glsProgram.linkShader();
 	glsProgram.addAtribute("vertexPosition");
+	glsProgram.addAtribute("vertexColor");
 
 }
 
