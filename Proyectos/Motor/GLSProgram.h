@@ -20,5 +20,6 @@ public:
 	void addAtribute(const string atributeName);
 	void use();
 	void unuse();
+	GLuint getUniformLocation(const string& name);
 };
 

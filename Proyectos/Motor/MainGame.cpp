@@ -7,7 +7,8 @@ using namespace std;
 
 MainGame::MainGame(): window(nullptr),width(800),
 					height(600),
-					gameState(GameState::PLAY)
+					gameState(GameState::PLAY),
+					time(0)
 {
 }
 
@@ -60,6 +61,9 @@ void MainGame::draw() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//se dibujaran los elementos en pantalla
 	glsProgram.use();
+	GLuint timeLocation = glsProgram.getUniformLocation("time");
+	glUniform1f(timeLocation, time);
+	time += 0.002;
 	sprite.draw();
 	glsProgram.unuse();
 	SDL_GL_SwapWindow(window);

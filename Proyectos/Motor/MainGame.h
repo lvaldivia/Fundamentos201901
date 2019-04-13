@@ -18,6 +18,7 @@ private:
 	SDL_Window*window; 
 	void init();
 	void initShaders();
+	float time;
 public:
 	MainGame();
 	GameState gameState;
