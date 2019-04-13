@@ -6,12 +6,36 @@
 
 GLSProgram::GLSProgram(): programID(0),
 						vertexShaderID(0), 
-						fragmentShaderID(0)
+						fragmentShaderID(0),
+						numAttribute(0)
 {
 }
 
 GLSProgram::~GLSProgram() {
 
+}
+
+void GLSProgram::addAtribute(const string atributeName) {
+	glBindAttribLocation(
+				programID, numAttribute++, atributeName.c_str());
+}
+
+void GLSProgram::use()
+{
+	glUseProgram(programID);
+	for (int i = 0; i < numAttribute; i++)
+	{
+		glEnableVertexAttribArray(i);
+	}
+}
+
+void GLSProgram::unuse()
+{
+	glUseProgram(0);
+	for (int i = 0; i < numAttribute; i++)
+	{
+		glDisableVertexAttribArray(i);
+	}
 }
 
 void GLSProgram::compileShader(const string& shaderPath, GLuint id)

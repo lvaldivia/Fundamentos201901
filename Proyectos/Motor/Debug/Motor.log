@@ -1,8 +1,5 @@
-﻿  GLSProgram.cpp
-  MainGame.cpp
-  main.cpp
-  Generando código...
+﻿  MainGame.cpp
   Error.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
-MainGame.obj : warning LNK4248: sÝmbolo (token) de typeref sin resolver (01000018) para 'SDL_Window'; no se puede ejecutar la imagen
+MainGame.obj : warning LNK4248: sφmbolo (token) de typeref sin resolver (01000018) para 'SDL_Window'; no se puede ejecutar la imagen
   Motor.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\Motor.exe
   Motor.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\Motor.pdb (Partial PDB)
