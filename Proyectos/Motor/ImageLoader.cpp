@@ -36,7 +36,4 @@ GLTexture ImageLoader::loadPNG(string filePath)
 	texture.width = width;
 	texture.height = height;
 	return texture;
-
-
-	return GLTexture();
 }

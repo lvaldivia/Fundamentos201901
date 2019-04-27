@@ -44,25 +44,28 @@ void MainGame::initShaders()
 {
 	glsProgram.compileShaders("Shaders/colorShaderVert.txt"
 								, "Shaders/colorShaderFrag.txt");
-	glsProgram.linkShader();
 	glsProgram.addAtribute("vertexPosition");
 	glsProgram.addAtribute("vertexColor");
-
+	glsProgram.addAtribute("vertexUV");
+	glsProgram.linkShader();
 }
 
 void MainGame::run() {
 	init();
-	sprite.init(-1, -1, 1, 1);
+	sprite.init(-1, -1, 1, 1,"Textures/mario.png");
 	update();
 }
 
 void MainGame::draw() {
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//se dibujaran los elementos en pantalla
 	glsProgram.use();
+	glActiveTexture(GL_TEXTURE0);
 	GLuint timeLocation = glsProgram.getUniformLocation("time");
 	glUniform1f(timeLocation, time);
+	GLuint imageLocation = glsProgram.getUniformLocation("image");
+	glUniform1i(imageLocation, 0);
+
 	time += 0.002;
 	sprite.draw();
 	glsProgram.unuse();

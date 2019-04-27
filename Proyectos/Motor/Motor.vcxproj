@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="GLSProgram.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
@@ -136,8 +137,10 @@
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="picoPNG.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="TextureCache.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Error.h" />
     <ClInclude Include="GLSProgram.h" />
     <ClInclude Include="GLTexture.h" />
@@ -147,6 +150,7 @@
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="TextureCache.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>

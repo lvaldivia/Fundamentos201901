@@ -27,10 +27,24 @@ struct Color {
 	}
 };
 
+struct UV {
+	float x;
+	float y;
+	void set(float _x, float _y) {
+		x = _x;
+		y = _y;
+	}
+};
+
 struct Vertex {
 	Color color;
 	Position position;
+	UV uv;
 	
+	void setUV(float u, float v) {
+		uv.set(u, v);
+	}
+
 	void setColor(GLubyte _r, GLubyte _g, GLubyte _b, GLubyte _a) {
 		color.set(_r, _g, _b, _a);
 	}

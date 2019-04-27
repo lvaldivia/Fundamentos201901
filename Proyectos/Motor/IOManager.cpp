@@ -7,7 +7,7 @@ bool IOManager::readFileToBuffer(string filePath,
 	ifstream file(filePath, ios::binary);
 	if (file.fail()) {
 		perror(filePath.c_str());
-		return;
+		return false;
 	}
 	file.seekg(0, ios::end);
 	int filesize = file.tellg();
