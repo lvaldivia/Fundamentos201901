@@ -52,7 +52,13 @@ void MainGame::initShaders()
 
 void MainGame::run() {
 	init();
-	sprite.init(-1, -1, 1, 1,"Textures/mario.png");
+	sprites.push_back(new Sprite());
+	sprites.back()->init(-1, -1, 1, 1, "Textures/mario.png");
+
+	sprites.push_back(new Sprite());
+	sprites.back()->init(0, -1, 1, 1, "Textures/mario.png");
+
+	//sprite.init(-1, -1, 1, 1,"Textures/mario.png");
 	update();
 }
 
@@ -67,7 +73,11 @@ void MainGame::draw() {
 	glUniform1i(imageLocation, 0);
 
 	time += 0.002;
-	sprite.draw();
+	//sprite.draw();
+	for (int i = 0; i < sprites.size(); i++)
+	{
+		sprites[i]->draw();
+	}
 	glsProgram.unuse();
 	SDL_GL_SwapWindow(window);
 }

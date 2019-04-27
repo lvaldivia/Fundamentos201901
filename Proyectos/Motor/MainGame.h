@@ -3,6 +3,7 @@
 #include <GL\glew.h>
 #include "Sprite.h"
 #include "GLSProgram.h"
+#include <vector>
 
 enum class GameState {
 	PLAY,
@@ -14,6 +15,7 @@ private:
 	int width;
 	int height;
 	Sprite sprite;
+	vector<Sprite*> sprites;
 	GLSProgram glsProgram;
 	SDL_Window*window; 
 	void init();
