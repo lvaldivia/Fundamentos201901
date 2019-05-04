@@ -15,6 +15,7 @@ private:
 public:
 	void update();
 	void init(int _screenWidth, int _screenHeight);
+	float getScale() { return scale; }
 	glm::vec2 getPosition() { return position; }
 	void setPosition(const glm::vec2& newPosition) {
 		position = newPosition;
