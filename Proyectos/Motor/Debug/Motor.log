@@ -1,7 +1,0 @@
-﻿  MainGame.cpp
-MainGame.cpp(82): warning C4305: '+=': truncamiento de 'double' a 'float'
-MainGame.cpp(84): warning C4018: '<': no coinciden signed/unsigned
-  AssetManager.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
-MainGame.obj : warning LNK4248: sφmbolo (token) de typeref sin resolver (01000018) para 'SDL_Window'; no se puede ejecutar la imagen
-  Motor.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\Motor.exe
-  Motor.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\Motor.pdb (Partial PDB)
