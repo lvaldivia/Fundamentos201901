@@ -6,6 +6,8 @@
 #include "Window.h"
 #include "Camera2D.h"
 #include <vector>
+#include "InputManager.h"
+#include "SpriteBatch.h"
 
 enum class GameState
 {
@@ -22,9 +24,12 @@ private:
 	Window _window;
 	void init();
 	void procesInput();
+	void handleInput();
 	GLS_Program _program;
 	vector<Sprite*> _sprites;
 	Camera2D _camera;
+	SpriteBatch spritebatch;
+	InputManager inputManager;
 	
 public:
 	MainGame();

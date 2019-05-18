@@ -1,23 +1,7 @@
-﻿  Window.cpp
-  TextureCache.cpp
-  Sprite.cpp
-  ResourceManager.cpp
-  picoPNG.cpp
-  PapuEngine.cpp
-  MainGame.cpp
+﻿  MainGame.cpp
 c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(15): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(58): warning C4018: '<': no coinciden signed/unsigned
-  main.cpp
-  IOManager.cpp
-c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\iomanager.cpp(15): warning C4244: 'inicializando': conversión de 'std::streamoff' a 'int'; posible pérdida de datos
-c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\iomanager.cpp(18): warning C4244: '-=': conversión de 'std::streamoff' a 'int'; posible pérdida de datos
-  ImageLoader.cpp
-c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\imageloader.cpp(36): warning C4244: '=': conversión de 'unsigned long' a 'float'; posible pérdida de datos
-c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\imageloader.cpp(37): warning C4244: '=': conversión de 'unsigned long' a 'float'; posible pérdida de datos
-  GLS_Program.cpp
-  Error.cpp
-  Camera2D.cpp
-  Generando código...
-  LINK : no se encontró C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(78): warning C4244: 'argumento': conversión de 'Sint32' a 'float'; posible pérdida de datos
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(115): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
   PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe
   PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.pdb (Partial PDB)

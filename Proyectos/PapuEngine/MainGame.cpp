@@ -65,8 +65,7 @@ void MainGame::draw() {
 
 void MainGame::procesInput() {
 	SDL_Event event;
-	const float CAMERA_SPEED = 20.0f;
-	const float SCALE_SPEED = 0.1f;
+	
 	while (SDL_PollEvent(&event))
 	{
 		switch (event.type)
@@ -75,33 +74,47 @@ void MainGame::procesInput() {
 				_gameState = GameState::EXIT;
 				break;
 			case SDL_MOUSEMOTION:
+				inputManager.setMouseCoords(event.motion.x,
+					event.motion.y);
 			break;
+			case SDL_KEYUP:
+				inputManager.releaseKey(event.key.keysym.sym);
+				break;
 			case  SDL_KEYDOWN:
-				switch (event.key.keysym.sym)
-				{
-				case SDLK_w:
-					_camera.setPosition(_camera.getPosition() + glm::vec2(0.0, CAMERA_SPEED));
-					break;
-				case SDLK_s:
-					_camera.setPosition(_camera.getPosition() + glm::vec2(0.0, -CAMERA_SPEED));
-					break;
-				case SDLK_a :
-					_camera.setPosition(_camera.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0));
-					break;
-				case SDLK_d:
-					_camera.setPosition(_camera.getPosition() + glm::vec2(CAMERA_SPEED, 0.0));
-					break;
-				case SDLK_q:
-					_camera.setScale(_camera.getScale() + SCALE_SPEED);
-					break;
-				case SDLK_e:
-					_camera.setScale(_camera.getScale() - SCALE_SPEED);
-					break;
-				}
+				inputManager.pressKey(event.key.keysym.sym);
 				break;
 		}
 	}
+	handleInput();
 
+}
+
+void MainGame::handleInput()
+{
+	const float CAMERA_SPEED = 0.02;
+	const float SCALE_SPEED = 0.01f;
+	if (inputManager.isKeyPressed(SDLK_w)) {
+		_camera.setPosition(_camera.getPosition() 
+					- glm::vec2(0.0, CAMERA_SPEED));
+	}
+	if (inputManager.isKeyPressed(SDLK_s)) {
+		_camera.setPosition(_camera.getPosition() 
+				+ glm::vec2(0.0, CAMERA_SPEED));
+	}
+	if (inputManager.isKeyPressed(SDLK_a)) {
+		_camera.setPosition(_camera.getPosition() 
+				+ glm::vec2(CAMERA_SPEED, 0.0));
+	}
+	if (inputManager.isKeyPressed(SDLK_d)) {
+		_camera.setPosition(_camera.getPosition() 
+				- glm::vec2(CAMERA_SPEED, 0.0));
+	}
+	if (inputManager.isKeyPressed(SDLK_q)) {
+		_camera.setScale(_camera.getScale() + SCALE_SPEED);
+	}
+	if (inputManager.isKeyPressed(SDLK_e)) {
+		_camera.setScale(_camera.getScale() - SCALE_SPEED);
+	}
 }
 
 void MainGame::update() {
