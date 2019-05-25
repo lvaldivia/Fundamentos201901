@@ -9,8 +9,8 @@ private:
 public:
 	Player();
 	~Player();
-	void init(float speed, glm::vec2 position, 
-					InputManager* inputmanager);
+	void init(float _speed, glm::vec2 _position, 
+					InputManager* _inputmanager);
 	void update(const std::vector<std::string>&levelData, 
 						std::vector<Human*>& humans,
 						std::vector<Zombie*>& zombies

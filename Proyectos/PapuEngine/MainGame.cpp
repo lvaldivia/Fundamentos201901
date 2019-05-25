@@ -3,16 +3,13 @@
 #include "ImageLoader.h"
 #include <iostream>
 #include "PapuEngine.h"
+#include <random>
+#include <ctime>
 
 using namespace std;
 
 void MainGame::run() {
 	init();
-	/*_sprites.push_back(new Sprite());
-	_sprites.back()->init(0.0f, 0.0f, _witdh/2, _witdh/2, "Textures/Paper_Mario_.png");
-
-	_sprites.push_back(new Sprite());
-	_sprites.back()->init(_witdh/2, _height/2, _witdh / 2, _witdh / 2, "Textures/Paper_Mario_.png");*/
 	update();
 }
 
@@ -28,9 +25,27 @@ void MainGame::initLevel() {
 	levels.push_back(new Level("Level/level1.txt"));
 	spritebatch.init();
 	player = new Player();
-	player->init(0.10f, 
+	player->init(10.0f, 
 			levels[currentLevel]->getPlayerPosition(),
 		&inputManager);
+
+	std::mt19937 randomEngine(time(nullptr));
+	std::uniform_int_distribution<int> randomX(
+		1, levels[currentLevel]->getWidth() - 2
+	);
+	std::uniform_int_distribution<int> randomY(
+		1, levels[currentLevel]->getHeight() - 2
+	);
+
+	for (int i = 0; i < 
+			levels[currentLevel]->getNumHumans(); i++)
+	{
+		humans.push_back(new Human());
+		glm::vec2 pos(randomX(randomEngine)*TILE_WIDTH,
+			randomY(randomEngine)*TILE_WIDTH);
+		humans.back()->init(10.0f, pos);
+
+	}
 }
 
 void MainGame::initShaders() {
@@ -41,6 +56,8 @@ void MainGame::initShaders() {
 	_program.addAtribute("vertexUV");
 	_program.linkShader();
 }
+
+
 
 
 void MainGame::draw() {
@@ -68,6 +85,10 @@ void MainGame::draw() {
 	spritebatch.begin();
 	levels[currentLevel]->draw();
 	player->draw(spritebatch);
+	for (size_t i = 0; i < humans.size(); i++)
+	{
+		humans[i]->draw(spritebatch);
+	}
 	spritebatch.end();
 	spritebatch.renderBatch();
 
@@ -108,7 +129,7 @@ void MainGame::handleInput()
 {
 	const float CAMERA_SPEED = 0.02;
 	const float SCALE_SPEED = 0.001f;
-	if (inputManager.isKeyPressed(SDLK_w)) {
+	/*if (inputManager.isKeyPressed(SDLK_w)) {
 		_camera.setPosition(_camera.getPosition() 
 					+glm::vec2(0.0, CAMERA_SPEED));
 	}
@@ -123,7 +144,7 @@ void MainGame::handleInput()
 	if (inputManager.isKeyPressed(SDLK_d)) {
 		_camera.setPosition(_camera.getPosition() 
 				+ glm::vec2(CAMERA_SPEED, 0.0));
-	}
+	}*/
 	if (inputManager.isKeyPressed(SDLK_q)) {
 		_camera.setScale(_camera.getScale() + SCALE_SPEED);
 	}
@@ -139,9 +160,21 @@ void MainGame::update() {
 		draw();
 		_camera.update();
 		_time += 0.002f;
+		_camera.setPosition(player->getPosition());
+		updateElements();
 	}
 }
 
+void MainGame::updateElements() {
+	player->update(levels[currentLevel]->getLevelData(),
+		humans, zombies);
+
+	for (size_t i = 0; i < humans.size(); i++)
+	{
+		humans[i]->update(levels[currentLevel]->getLevelData(),
+			humans, zombies);
+	}
+}
 
 MainGame::MainGame(): 
 					  _witdh(800),
