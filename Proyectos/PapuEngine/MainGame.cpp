@@ -27,6 +27,10 @@ void MainGame::initLevel() {
 	currentLevel = 0;
 	levels.push_back(new Level("Level/level1.txt"));
 	spritebatch.init();
+	player = new Player();
+	player->init(0.10f, 
+			levels[currentLevel]->getPlayerPosition(),
+		&inputManager);
 }
 
 void MainGame::initShaders() {
@@ -63,12 +67,14 @@ void MainGame::draw() {
 
 	spritebatch.begin();
 	levels[currentLevel]->draw();
+	player->draw(spritebatch);
 	spritebatch.end();
 	spritebatch.renderBatch();
 
 	glBindTexture(GL_TEXTURE_2D, 0);
 	
 	_program.unuse();
+	
 	_window.swapBuffer();
 }
 
@@ -101,7 +107,7 @@ void MainGame::procesInput() {
 void MainGame::handleInput()
 {
 	const float CAMERA_SPEED = 0.02;
-	const float SCALE_SPEED = 0.01f;
+	const float SCALE_SPEED = 0.001f;
 	if (inputManager.isKeyPressed(SDLK_w)) {
 		_camera.setPosition(_camera.getPosition() 
 					+glm::vec2(0.0, CAMERA_SPEED));

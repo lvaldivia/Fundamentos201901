@@ -1,3 +1,7 @@
-﻿  Level.cpp
+﻿  Window.cpp
+  MainGame.cpp
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(93): warning C4244: 'argumento': conversión de 'Sint32' a 'float'; posible pérdida de datos
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(109): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Generando código...
   PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe
   PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.pdb (Partial PDB)

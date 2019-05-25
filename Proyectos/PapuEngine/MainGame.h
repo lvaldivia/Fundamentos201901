@@ -9,6 +9,7 @@
 #include "InputManager.h"
 #include "SpriteBatch.h"
 #include "Level.h"
+#include "Player.h"
 
 enum class GameState
 {
@@ -24,6 +25,7 @@ private:
 	float _time;
 	Window _window;
 	void init();
+	Player* player;
 	void procesInput();
 	void handleInput();
 	GLS_Program _program;
