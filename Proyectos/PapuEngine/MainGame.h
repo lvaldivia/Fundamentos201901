@@ -8,6 +8,7 @@
 #include <vector>
 #include "InputManager.h"
 #include "SpriteBatch.h"
+#include "Level.h"
 
 enum class GameState
 {
@@ -30,6 +31,9 @@ private:
 	Camera2D _camera;
 	SpriteBatch spritebatch;
 	InputManager inputManager;
+	vector<Level*> levels;
+	int currentLevel;
+	void initLevel();
 	
 public:
 	MainGame();

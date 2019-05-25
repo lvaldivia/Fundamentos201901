@@ -8,11 +8,11 @@ using namespace std;
 
 void MainGame::run() {
 	init();
-	_sprites.push_back(new Sprite());
+	/*_sprites.push_back(new Sprite());
 	_sprites.back()->init(0.0f, 0.0f, _witdh/2, _witdh/2, "Textures/Paper_Mario_.png");
 
 	_sprites.push_back(new Sprite());
-	_sprites.back()->init(_witdh/2, _height/2, _witdh / 2, _witdh / 2, "Textures/Paper_Mario_.png");
+	_sprites.back()->init(_witdh/2, _height/2, _witdh / 2, _witdh / 2, "Textures/Paper_Mario_.png");*/
 	update();
 }
 
@@ -20,6 +20,13 @@ void MainGame::init() {
 	Papu::init();
 	_window.create("Engine", _witdh, _height, 0);
 	initShaders();
+	initLevel();
+}
+
+void MainGame::initLevel() {
+	currentLevel = 0;
+	levels.push_back(new Level("Level/level1.txt"));
+	spritebatch.init();
 }
 
 void MainGame::initShaders() {
@@ -38,27 +45,29 @@ void MainGame::draw() {
 	_program.use();
 
 	glActiveTexture(GL_TEXTURE0);
-	//glBindTexture(GL_TEXTURE_2D, _texture.id);
 
-	GLuint timeLocation = 
+	/*GLuint timeLocation =
 		_program.getUniformLocation("time");
 
-	glUniform1f(timeLocation,_time);
+	glUniform1f(timeLocation,_time);*/
 
 	GLuint pLocation =
 		_program.getUniformLocation("P");
 
 	glm::mat4 cameraMatrix = _camera.getCameraMatrix();
-	glUniformMatrix4fv(pLocation, 1,GL_FALSE, &(cameraMatrix[0][0]));
+	glUniformMatrix4fv(pLocation, 1, GL_FALSE, &(cameraMatrix[0][0]));
 
 	GLuint imageLocation = _program.getUniformLocation("myImage");
 	glUniform1i(imageLocation, 0);
 
 
-	for (int i = 0; i < _sprites.size(); i++)
-	{
-		_sprites[i]->draw();
-	}
+	spritebatch.begin();
+	levels[currentLevel]->draw();
+	spritebatch.end();
+	spritebatch.renderBatch();
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+	
 	_program.unuse();
 	_window.swapBuffer();
 }
@@ -95,19 +104,19 @@ void MainGame::handleInput()
 	const float SCALE_SPEED = 0.01f;
 	if (inputManager.isKeyPressed(SDLK_w)) {
 		_camera.setPosition(_camera.getPosition() 
-					- glm::vec2(0.0, CAMERA_SPEED));
+					+glm::vec2(0.0, CAMERA_SPEED));
 	}
 	if (inputManager.isKeyPressed(SDLK_s)) {
 		_camera.setPosition(_camera.getPosition() 
-				+ glm::vec2(0.0, CAMERA_SPEED));
+				- glm::vec2(0.0, CAMERA_SPEED));
 	}
 	if (inputManager.isKeyPressed(SDLK_a)) {
 		_camera.setPosition(_camera.getPosition() 
-				+ glm::vec2(CAMERA_SPEED, 0.0));
+				- glm::vec2(CAMERA_SPEED, 0.0));
 	}
 	if (inputManager.isKeyPressed(SDLK_d)) {
 		_camera.setPosition(_camera.getPosition() 
-				- glm::vec2(CAMERA_SPEED, 0.0));
+				+ glm::vec2(CAMERA_SPEED, 0.0));
 	}
 	if (inputManager.isKeyPressed(SDLK_q)) {
 		_camera.setScale(_camera.getScale() + SCALE_SPEED);
