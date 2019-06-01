@@ -51,7 +51,38 @@ void Game::run() {
 		draw();
 		window.swapBuffer();
 	}
+}
 
+void Game::update() {
+	if (currentScreen) {
+		switch (currentScreen->getState())
+		{
+			case ScreenState::RUNNING:
+				currentScreen->update();
+			break;
+			case ScreenState::CHANGE_NEXT:
+				currentScreen->onExit();
+				currentScreen = screenList->moveNext();
+				if (currentScreen) {
+					currentScreen->setRunning();
+					currentScreen->onEntry();
+				}
+				break;
+			case ScreenState::CHANGE_PREVIOUS:
+				currentScreen->onExit();
+				currentScreen = screenList->movePreviuos();
+				if (currentScreen) {
+					currentScreen->setRunning();
+					currentScreen->onEntry();
+				}
+				break;
+			case ScreenState::EXIT_APPLICATION:
+				exit();
+				break;
+			default:
+				break;
+		}
+	}
 }
 
 Game::~Game()

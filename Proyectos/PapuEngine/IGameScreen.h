@@ -12,10 +12,10 @@ class Game;
 class IGameScreen
 {
 protected:
-	int screenIndex = 1;
 	ScreenState currentState = ScreenState::NONE;
 	Game* game = nullptr;
 public:
+	int screenIndex = 1;
 	virtual void build() = 0;
 	virtual void destroy() = 0;
 	virtual void onExit() = 0;
