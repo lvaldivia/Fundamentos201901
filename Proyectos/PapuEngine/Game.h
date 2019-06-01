@@ -3,7 +3,7 @@
 #include "InputManager.h"
 #include <memory>
 
-class Screenlist;
+class ScreenList;
 class IGameScreen;
 
 class Game
@@ -22,7 +22,7 @@ protected:
 	void update();
 	void draw();
 	bool initSystems();
-	std::unique_ptr<Screenlist> screenList = nullptr;
+	std::unique_ptr<ScreenList> screenList = nullptr;
 	bool isRunning = false;
 	Window window;
 	InputManager inputManager;

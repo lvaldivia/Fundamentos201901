@@ -22,10 +22,15 @@ public:
 	virtual void onEntry() = 0;
 	virtual void draw() = 0;
 	virtual void update() = 0;
+	virtual void initSystem() = 0;
+	virtual void checkInput() = 0;
 	virtual int getNextScreen() const = 0;
 	virtual int getPreviousScreen() const = 0;
 	ScreenState getState()const {
 		return currentState;
+	}
+	int getIndex()const {
+		return screenIndex;
 	}
 	void setRunning() {
 		currentState = ScreenState::RUNNING;

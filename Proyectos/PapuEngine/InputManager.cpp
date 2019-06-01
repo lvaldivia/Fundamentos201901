@@ -35,3 +35,17 @@ bool InputManager::isKeyPressed(unsigned int keyCode)
 	}
 	return false;
 }
+
+void InputManager::update() {
+	for (auto& it:keys) {
+		previous[it.first] = it.second;
+	}
+}
+
+bool InputManager::wasKeyDown(unsigned int keyCode) {
+	auto it = previous.find(keyCode);
+	if (it != previous.end()) {
+		return it->second;
+	}
+	return false;
+}

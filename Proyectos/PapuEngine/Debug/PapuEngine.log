@@ -2,5 +2,14 @@
 c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(32): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
 c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(114): warning C4244: 'argumento': conversión de 'Sint32' a 'float'; posible pérdida de datos
 c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\maingame.cpp(130): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
-  PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe
-  PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.pdb (Partial PDB)
+  Game.cpp
+  App.cpp
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\app.cpp(22): error C2664: 'void ScreenList::addScreen(IGameScreen *)': el argumento 1 no puede convertirse de 'MenuScreen *' a 'IGameScreen *'
+  c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\app.cpp(22): note: Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\app.cpp(23): error C2664: 'void ScreenList::addScreen(IGameScreen *)': el argumento 1 no puede convertirse de 'GameScreen *' a 'IGameScreen *'
+  c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\app.cpp(23): note: Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\app.cpp(24): error C2039: 'getIndex': no es un miembro de 'MenuScreen'
+  c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\menuscreen.h(3): note: vea la declaración de 'MenuScreen'
+  Generando código...
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\window.h(24): error C4716: 'Window::getScreenHeight': debe devolver un valor
+c:\users\proyecto\documents\fundamentos201901\proyectos\papuengine\window.h(23): error C4716: 'Window::getScreenWidth': debe devolver un valor
