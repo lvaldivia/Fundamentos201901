@@ -38,7 +38,5 @@ public:
 	void setParent(Game* _game) {
 		game = _game;
 	}
-	IGameScreen();
-	virtual ~IGameScreen();
 };
 

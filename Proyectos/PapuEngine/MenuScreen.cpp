@@ -12,6 +12,16 @@ void MenuScreen::initSystem() {
 
 }
 
+int MenuScreen::getNextScreen() const
+{
+	return 0;
+}
+
+int MenuScreen::getPreviousScreen() const
+{
+	return 0;
+}
+
 void MenuScreen::build() {
 
 }

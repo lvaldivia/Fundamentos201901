@@ -17,10 +17,10 @@ void App::onExit() {
 void App::addScreen() {
 	menuScreen = std::make_unique<MenuScreen>
 		(&window);
-	gameScreen = std::make_unique<GameScreen>
-		(&window);
+	/*gameScreen = std::make_unique<GameScreen>
+		(&window);*/
 	screenList->addScreen(menuScreen.get());
-	screenList->addScreen(gameScreen.get());
+	//screenList->addScreen(gameScreen.get());
 	screenList->setScreen(menuScreen->getIndex());
 }
 

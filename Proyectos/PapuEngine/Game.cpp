@@ -53,6 +53,10 @@ void Game::run() {
 	}
 }
 
+void Game::exit()
+{
+}
+
 void Game::update() {
 	if (currentScreen) {
 		switch (currentScreen->getState())
