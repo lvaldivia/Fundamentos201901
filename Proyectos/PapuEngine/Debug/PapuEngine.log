@@ -1,13 +1,4 @@
-﻿  MenuScreen.cpp
-  Generando código...
-  Omitiendo... (no se detectaron cambios relevantes)
-  main.cpp
-  App.cpp
-SpriteFont.obj : error LNK2019: símbolo externo _TTF_Init sin resolver al que se hace referencia en la función "public: void __thiscall SpriteFont::init(char const *,int,char,char)" (?init@SpriteFont@@QAEXPBDHDD@Z)
-SpriteFont.obj : error LNK2019: símbolo externo _TTF_OpenFont sin resolver al que se hace referencia en la función "public: void __thiscall SpriteFont::init(char const *,int,char,char)" (?init@SpriteFont@@QAEXPBDHDD@Z)
-SpriteFont.obj : error LNK2019: símbolo externo _TTF_FontHeight sin resolver al que se hace referencia en la función "public: void __thiscall SpriteFont::init(char const *,int,char,char)" (?init@SpriteFont@@QAEXPBDHDD@Z)
-SpriteFont.obj : error LNK2019: símbolo externo _TTF_GlyphMetrics sin resolver al que se hace referencia en la función "public: void __thiscall SpriteFont::init(char const *,int,char,char)" (?init@SpriteFont@@QAEXPBDHDD@Z)
-SpriteFont.obj : error LNK2019: símbolo externo _TTF_RenderGlyph_Blended sin resolver al que se hace referencia en la función "public: void __thiscall SpriteFont::init(char const *,int,char,char)" (?init@SpriteFont@@QAEXPBDHDD@Z)
-SpriteFont.obj : error LNK2019: símbolo externo _TTF_CloseFont sin resolver al que se hace referencia en la función "public: void __thiscall SpriteFont::init(char const *,int,char,char)" (?init@SpriteFont@@QAEXPBDHDD@Z)
-SpriteFont.obj : error LNK2019: símbolo externo _TTF_WasInit sin resolver al que se hace referencia en la función "public: void __thiscall SpriteFont::init(char const *,int,char,char)" (?init@SpriteFont@@QAEXPBDHDD@Z)
-C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe : fatal error LNK1120: 7 externos sin resolver
+﻿  Window.cpp
+cl : Línea de comandos warning D9028: error de recompilación mínimo, revirtiendo a la compilación normal
+  PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe
+  PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.pdb (Partial PDB)
