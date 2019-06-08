@@ -1,5 +1,5 @@
 #include "GameScreen.h"
-
+#include "ScreenIndices.h"
 
 GameScreen::~GameScreen()
 {
@@ -7,7 +7,7 @@ GameScreen::~GameScreen()
 
 GameScreen::GameScreen(Window * _window) :window(_window)
 {
-	screenIndex = 2;
+	screenIndex = SCREEN_INDEX_GAME;
 }
 
 void GameScreen::build()
@@ -40,12 +40,12 @@ void GameScreen::initSystem()
 
 int GameScreen::getNextScreen() const
 {
-	return 0;
+	return SCREEN_INDEX_NO_SCREEN;
 }
 
 int GameScreen::getPreviousScreen() const
 {
-	return 0;
+	return SCREEN_INDEX_MENU;
 }
 
 void GameScreen::checkInput()

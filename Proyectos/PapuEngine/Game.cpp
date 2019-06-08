@@ -23,7 +23,6 @@ bool Game::init() {
 
 
 void Game::draw() {
-
 	glViewport(0, 0, window.getScreenWidth(),
 		window.getScreenHeight());
 	if (currentScreen

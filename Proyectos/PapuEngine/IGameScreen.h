@@ -1,4 +1,6 @@
 #pragma once
+#include "GLS_Program.h"
+
 enum class ScreenState {
 	NONE,
 	RUNNING,
@@ -14,6 +16,7 @@ class IGameScreen
 protected:
 	ScreenState currentState = ScreenState::NONE;
 	Game* game = nullptr;
+	GLS_Program program;
 public:
 	int screenIndex = 1;
 	virtual void build() = 0;
