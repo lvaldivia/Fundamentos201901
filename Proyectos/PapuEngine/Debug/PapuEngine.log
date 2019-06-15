@@ -1,2 +1,4 @@
-﻿  PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe
+﻿  MenuScreen.cpp
+cl : Línea de comandos warning D9028: error de recompilación mínimo, revirtiendo a la compilación normal
+  PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.exe
   PapuEngine.vcxproj -> C:\Users\Proyecto\Documents\Fundamentos201901\Proyectos\Debug\PapuEngine.pdb (Partial PDB)

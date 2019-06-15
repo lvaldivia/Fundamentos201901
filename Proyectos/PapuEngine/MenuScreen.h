@@ -6,6 +6,7 @@
 #include "Background.h"
 #include "Camera2D.h"
 #include "SpriteBatch.h"
+#include "Button.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ class MenuScreen : public IGameScreen
 {
 private:
 	Background* background = nullptr;
+	Button* button = nullptr;
 	Window* _window = nullptr;
 	bool btnGameClicked;
 	GLS_Program _program;

@@ -1,7 +1,7 @@
 #include "MenuScreen.h"
 #include "MyScreens.h"
 #include "Game.h"
-
+#include <iostream>
 
 MenuScreen::MenuScreen(Window* window):
 	_window(window), btnGameClicked(false)
@@ -12,6 +12,7 @@ MenuScreen::MenuScreen(Window* window):
 void MenuScreen::initGUI() {
 	_spriteFont = new SpriteFont("Fonts/arial.ttf", 64);
 	background = new Background("Textures/menu.png");
+	button = new Button("Textures/menu_button.png");
 }
 
 void MenuScreen::initSystem() {
@@ -43,7 +44,9 @@ void MenuScreen::onEntry() {
 void MenuScreen::update() {
 	_camera2D.update();
 	if (_game->_inputManager.isKeyDown(SDL_BUTTON_LEFT)) {
-		
+		if (button->click(_game->_inputManager.getMouseCoords())) {
+			std::cout << "clik" << std::endl;
+		}
 	}
 	checkInput();
 }
@@ -66,13 +69,10 @@ void MenuScreen::draw() {
 
 	GLuint imageLocation = _program.getUniformLocation("myImage");
 	glUniform1i(imageLocation, 0);
-	_spriteBatch.begin();
-	
-	_spriteBatch.end();
-	_spriteBatch.renderBatch();
-
 	char buffer[256];
 	_spriteBatch.begin();
+	background->draw(_spriteBatch);
+	button->draw(_spriteBatch);
 	sprintf(buffer, " ARREGLANDO EL BUG");
 	_spriteFont->draw(_spriteBatch, buffer,
 		glm::vec2(250, 100), glm::vec2(0.5), 0.0f,
