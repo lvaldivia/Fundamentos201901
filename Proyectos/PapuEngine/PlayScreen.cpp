@@ -46,7 +46,9 @@ void PlayScreen::onEntry() {
 		_window->getScreenHeight() / 2.0f));
 	_spriteBatch.init();
 	
-	
+	player = new Gamer(106, 79,
+		glm::vec2(200, 200), "Textures/Player.png", 
+		&_game->_inputManager);
 	initGUI();
 	
 }
@@ -55,7 +57,7 @@ void PlayScreen::onEntry() {
 
 void PlayScreen::update() {
 	_camera2D.update();
-	
+	player->update();
 	checkInput();
 }
 
@@ -78,7 +80,7 @@ void PlayScreen::draw() {
 	GLuint imageLocation = _program.getUniformLocation("myImage");
 	glUniform1i(imageLocation, 0);
 	_spriteBatch.begin();;
-	
+	player->draw(_spriteBatch);
 	_spriteBatch.end();
 	_spriteBatch.renderBatch();
 	drawHUD();

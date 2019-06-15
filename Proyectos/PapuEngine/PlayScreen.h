@@ -5,11 +5,13 @@
 #include "Window.h"
 #include "SpriteBatch.h"
 #include "GLTexture.h"
+#include "Gamer.h"
 
 class PlayScreen: public IGameScreen
 {
 private:
 	GLS_Program _program;
+	Gamer* player;
 	Camera2D _camera2D;
 	Window* _window = nullptr;
 	SpriteBatch _spriteBatch;

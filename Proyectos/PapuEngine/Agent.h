@@ -30,7 +30,7 @@ public:
 	Agent(float agent_width,float agent_height,glm::vec2 position, std::string texturePath);
 	glm::vec2 getPosition()const { return _position; };
 
-	virtual void update(float deltaTime, bool reloj) = 0;
+	virtual void update() = 0;
 	virtual void changeTexture(std::string texturePath) = 0;
 	virtual std::string getTexture() = 0;
 	void draw(SpriteBatch& spritebatch);

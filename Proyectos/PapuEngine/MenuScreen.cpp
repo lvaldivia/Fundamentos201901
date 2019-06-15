@@ -26,6 +26,8 @@ void MenuScreen::initSystem() {
 
 void MenuScreen::destroy() {
 	delete background;
+	delete button;
+	delete _spriteFont;
 }
 
 void MenuScreen::onExit() {}
@@ -44,8 +46,13 @@ void MenuScreen::onEntry() {
 void MenuScreen::update() {
 	_camera2D.update();
 	if (_game->_inputManager.isKeyDown(SDL_BUTTON_LEFT)) {
-		if (button->click(_game->_inputManager.getMouseCoords())) {
+		if (
+			!button->getClicked() &&
+				button->click(_game->_inputManager.getMouseCoords())
+			) {
+			button->setClicked(true);
 			std::cout << "clik" << std::endl;
+			_currentState = ScreenState::CHANGE_NEXT;
 		}
 	}
 	checkInput();

@@ -3,7 +3,7 @@
 
 
 Button::Button(std::string _texture)
-	:texture(_texture)
+	:texture(_texture), clicked(false)
 {
 	position = glm::vec2(200, 100);
 	textureID
@@ -25,8 +25,8 @@ bool Button::click(glm::vec2 _position)
 {
 	bool result = (_position.x > position.x)
 		&& (_position.x < position.x + 190)
-		&& (_position.y > position.y)
-		&& (_position.y < position.y + 50);
+		&& (500 - _position.y > position.y)
+		&& (500 - _position.y < position.y + 50);
 	return result;
 }
 

@@ -13,8 +13,15 @@ private:
 	string texture;
 	ColorRGBA color;
 	int textureID;
+	bool clicked;
 	glm::vec2 position;
 public:
+	void setClicked(bool _clicked) {
+		clicked = _clicked;
+	}
+	bool getClicked()const {
+		return clicked;
+	}
 	Button(string _texture);
 	void draw(SpriteBatch& spriteBatch);
 	void setColor(ColorRGBA _color);
