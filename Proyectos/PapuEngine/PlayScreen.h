@@ -3,7 +3,7 @@
 #include "Camera2D.h"
 #include "GLS_Program.h"
 #include "Window.h"
-#include "SpriteBacth.h"
+#include "SpriteBatch.h"
 #include "GLTexture.h"
 
 class PlayScreen: public IGameScreen
@@ -12,8 +12,8 @@ private:
 	GLS_Program _program;
 	Camera2D _camera2D;
 	Window* _window = nullptr;
-	SpriteBacth _spriteBatch;
-	SpriteBacth _hudBach;
+	SpriteBatch _spriteBatch;
+	SpriteBatch _hudBach;
 	Camera2D _hudCamera;
 	void drawHUD();
 public:

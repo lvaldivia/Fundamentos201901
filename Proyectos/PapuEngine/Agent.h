@@ -1,6 +1,6 @@
 #pragma once
 #include <glm\glm.hpp>
-#include "SpriteBacth.h"
+#include "SpriteBatch.h"
 #include "GLTexture.h"
 
 
@@ -33,7 +33,7 @@ public:
 	virtual void update(float deltaTime, bool reloj) = 0;
 	virtual void changeTexture(std::string texturePath) = 0;
 	virtual std::string getTexture() = 0;
-	void draw(SpriteBacth& spritebatch);
+	void draw(SpriteBatch& spritebatch);
 	bool collideWithLevel(const std::vector<std::string>& levelData);
 	virtual ~Agent();
 	bool collideWithAgent(Agent* agent);

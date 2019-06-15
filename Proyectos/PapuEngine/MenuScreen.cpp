@@ -11,6 +11,7 @@ MenuScreen::MenuScreen(Window* window):
 
 void MenuScreen::initGUI() {
 	_spriteFont = new SpriteFont("Fonts/arial.ttf", 64);
+	background = new Background("Textures/menu.png");
 }
 
 void MenuScreen::initSystem() {
@@ -23,7 +24,7 @@ void MenuScreen::initSystem() {
 }
 
 void MenuScreen::destroy() {
-	
+	delete background;
 }
 
 void MenuScreen::onExit() {}

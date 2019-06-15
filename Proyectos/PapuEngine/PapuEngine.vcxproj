@@ -121,6 +121,8 @@
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="EndScreen.cpp" />
     <ClCompile Include="Error.cpp" />
@@ -137,7 +139,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ScreenList.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteBacth.cpp" />
+    <ClCompile Include="SpriteBatch.cpp" />
     <ClCompile Include="SpriteFont.cpp" />
     <ClCompile Include="TextureCache.cpp" />
     <ClCompile Include="Timing.cpp" />
@@ -146,6 +148,8 @@
   <ItemGroup>
     <ClInclude Include="Agent.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="EndScreen.h" />
     <ClInclude Include="Error.h" />
@@ -164,7 +168,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="ScreenList.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpriteBacth.h" />
+    <ClInclude Include="SpriteBatch.h" />
     <ClInclude Include="SpriteFont.h" />
     <ClInclude Include="TextureCache.h" />
     <ClInclude Include="Timing.h" />

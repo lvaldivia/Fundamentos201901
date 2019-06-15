@@ -3,18 +3,20 @@
 #include "Window.h"
 #include "GLS_Program.h"
 #include "SpriteFont.h"
+#include "Background.h"
 #include "Camera2D.h"
-#include "SpriteBacth.h"
+#include "SpriteBatch.h"
 
 using namespace std;
 
 class MenuScreen : public IGameScreen
 {
 private:
+	Background* background = nullptr;
 	Window* _window = nullptr;
 	bool btnGameClicked;
 	GLS_Program _program;
-	SpriteBacth _spriteBatch;
+	SpriteBatch _spriteBatch;
 	SpriteFont* _spriteFont;
 	Camera2D _camera2D;
 public:

@@ -11,7 +11,7 @@ Agent::Agent(float agent_width, float agent_height, glm::vec2 position, std::str
 }
 
 
-void Agent::draw(SpriteBacth& spritebatch) {
+void Agent::draw(SpriteBatch& spritebatch) {
 	_texture_id = ResourceManager::getTexture(_texturePath).id;
 	const glm::vec4 uvRect(0.0f, 0.0f, 1.0f, 1.0f);
 	ColorRGBA  color;

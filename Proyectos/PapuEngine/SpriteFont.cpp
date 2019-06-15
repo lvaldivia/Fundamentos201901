@@ -1,6 +1,6 @@
 #include "SpriteFont.h"
 
-#include "SpriteBacth.h"
+#include "SpriteBatch.h"
 
 #include <SDL/SDL.h>
 
@@ -235,7 +235,7 @@ glm::vec2 SpriteFont::measure(const char* s) {
 	return size;
 }
 
-void SpriteFont::draw(SpriteBacth& batch, const char* s, glm::vec2 position, glm::vec2 scaling,
+void SpriteFont::draw(SpriteBatch& batch, const char* s, glm::vec2 position, glm::vec2 scaling,
 	float depth, ColorRGBA tint, Justification just /* = Justification::LEFT */) {
 	glm::vec2 tp = position;
 	// Apply justification
