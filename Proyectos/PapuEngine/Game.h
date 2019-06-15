@@ -8,25 +8,35 @@ class IGameScreen;
 
 class Game
 {
+
 public:
 	Game();
 	virtual ~Game();
 	void run();
 	void exit();
+	virtual void setScreen(int index) = 0;
 	virtual void onInit() = 0;
-	virtual void addScreen() = 0;
+	virtual void addScreens() = 0;
 	virtual void onExit() = 0;
+	InputManager _inputManager;
 	void onSDLEvent(SDL_Event& event);
+	int index;
+	const float getFps()const {
+		return _fps;
+	}
+
 protected:
 	bool init();
+	float _fps = 0.0f;
 	void update();
 	void draw();
 	bool initSystems();
-	std::unique_ptr<ScreenList> screenList = nullptr;
-	bool isRunning = false;
-	Window window;
-	InputManager inputManager;
-	IGameScreen* currentScreen = nullptr;
+	std::unique_ptr<ScreenList> 
+					_screenList = nullptr;
+	bool _isRunning = false;
+	Window _window;
+	
+	IGameScreen* _currentScreen = nullptr;
 
 };
 

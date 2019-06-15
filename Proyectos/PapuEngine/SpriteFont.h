@@ -33,7 +33,7 @@ Modified By: Benjamin Arnold
 
 
 struct GLTexture;
-class SpriteBatch;
+class SpriteBacth;
 
 struct CharGlyph {
 public:
@@ -72,8 +72,8 @@ public:
 	glm::vec2 measure(const char* s);
 
 	/// Draws using a spritebatch
-	void draw(SpriteBatch& batch, const char* s, glm::vec2 position, glm::vec2 scaling,
-		float depth, Color tint, Justification just = Justification::LEFT);
+	void draw(SpriteBacth& batch, const char* s, glm::vec2 position, glm::vec2 scaling,
+		float depth, ColorRGBA tint, Justification just = Justification::LEFT);
 private:
 	static std::vector<int>* createRows(glm::ivec4* rects, int rectsLength, int r, int padding, int& w);
 

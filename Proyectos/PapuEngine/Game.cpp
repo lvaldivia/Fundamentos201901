@@ -1,82 +1,125 @@
 #include "Game.h"
-#include "IGameScreen.h"
-#include "ScreenList.h"
 #include "PapuEngine.h"
-
+#include "ScreenList.h"
+#include "IGameScreen.h"
+#include "Timing.h"
+#include <iostream>
 
 Game::Game()
 {
-	screenList = std::make_unique<ScreenList>(this);
+	_screenList = 
+			std::make_unique<ScreenList>(this);
 }
 
 bool Game::init() {
 	Papu::init();
-	SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+	SDL_GL_SetAttribute(
+			SDL_GL_ACCELERATED_VISUAL, 1);
 	initSystems();
 	onInit();
-	addScreen();
-	currentScreen = screenList->getCurrent();
-	currentScreen->onEntry();
-	currentScreen->setRunning();
+	addScreens();
+	setScreen(0);
+
+	_currentScreen = _screenList->getCurrent();
+	_currentScreen->onEntry();
+	_currentScreen->setRunning();
 	return true;
 }
-
 
 void Game::draw() {
-	glViewport(0, 0, window.getScreenWidth(),
-		window.getScreenHeight());
-	if (currentScreen
-		&& currentScreen->getState() == ScreenState::RUNNING) {
-		currentScreen->draw();
+	glViewport(0, 0, _window.getScreenWidth(),
+					_window.getScreenHeight());
+	if (_currentScreen 
+			&& _currentScreen->getState()
+				== ScreenState::RUNNING) {
+		_currentScreen->draw();
 	}
 }
-
 bool Game::initSystems() {
-	window.create("Holi",760, 500,0);
+	_window.create("Plataformer", 760, 500, 0);
 	return true;
 }
 
-void Game::onSDLEvent(SDL_Event& event){
-	
+void Game::onSDLEvent(SDL_Event& evnt) {
+	switch (evnt.type) {
+	case SDL_QUIT:
+		break;
+	case SDL_MOUSEMOTION:
+		_inputManager.setMouseCoords((float)evnt.motion.x, (float)evnt.motion.y);
+		break;
+	case SDL_KEYDOWN:
+		_inputManager.pressKey(evnt.key.keysym.sym);
+		break;
+	case SDL_KEYUP:
+		_inputManager.releaseKey(evnt.key.keysym.sym);
+		break;
+	case SDL_MOUSEBUTTONDOWN:
+		_inputManager.pressKey(evnt.button.button);
+		break;
+	case SDL_MOUSEBUTTONUP:
+		_inputManager.releaseKey(evnt.button.button);
+		break;
+	}
 }
 
 void Game::run() {
+	if (!init()) return;
+	_isRunning = true;
+	FpsLimiter fpsLimiter;
+	fpsLimiter.setMaxFPS(60.0f);
 
-	if (!init())return;
-	isRunning = true;
-	while (isRunning) {
-		inputManager.update();
+	while (_isRunning) {
+		fpsLimiter.begin();
+		_inputManager.update();
 		update();
 		draw();
-		window.swapBuffer();
+		_window.swapBuffer();
+		_fps = fpsLimiter.end();
+		//cout << _fps << endl;
+		
 	}
 }
 
-void Game::exit()
-{
+void Game::exit() {
+	_currentScreen->onExit();
+	if (_screenList) {
+		_screenList->destroy();
+		_screenList.reset();
+	}
+	_isRunning = false;
 }
 
 void Game::update() {
-	if (currentScreen) {
-		switch (currentScreen->getState())
+	if (_currentScreen) {
+		switch (_currentScreen->getState())
 		{
 			case ScreenState::RUNNING:
-				currentScreen->update();
-			break;
+				_currentScreen->update();
+				break;
 			case ScreenState::CHANGE_NEXT:
-				currentScreen->onExit();
-				currentScreen = screenList->moveNext();
-				if (currentScreen) {
-					currentScreen->setRunning();
-					currentScreen->onEntry();
+				_currentScreen->onExit();
+				_currentScreen = _screenList->getCurrent();
+				index = _currentScreen->getIndex();
+				_screenList->destroy();
+				addScreens();
+				setScreen(index);
+				_currentScreen = _screenList->moveNext();
+				if (_currentScreen) {
+					_currentScreen->setRunning();
+					_currentScreen->onEntry();
 				}
 				break;
 			case ScreenState::CHANGE_PREVIOUS:
-				currentScreen->onExit();
-				currentScreen = screenList->movePreviuos();
-				if (currentScreen) {
-					currentScreen->setRunning();
-					currentScreen->onEntry();
+				_currentScreen->onExit();
+				_currentScreen = _screenList->getCurrent();
+				index = _currentScreen->getIndex();
+				_screenList->destroy();
+				addScreens();
+				setScreen(index);
+				_currentScreen = _screenList->movePrevious();
+				if (_currentScreen) {
+					_currentScreen->setRunning();
+					_currentScreen->onEntry();
 				}
 				break;
 			case ScreenState::EXIT_APPLICATION:
@@ -85,10 +128,11 @@ void Game::update() {
 			default:
 				break;
 		}
+		
 	}
 }
 
+
 Game::~Game()
 {
-	
 }
